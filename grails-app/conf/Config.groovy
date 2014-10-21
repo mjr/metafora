@@ -71,6 +71,7 @@ grails.plugin.reveng.includeTables = ['pessoa', 'professor', 'pessoaFisica', 'al
 grails.plugin.reveng.defaultSchema = 'cadastro_unico_pessoal'*/
 
 grails.converters.encoding = "UTF-8"
+grails.views.gsp.encoding = "UTF-8"
 // scaffolding templates configuration
 grails.scaffolding.templates.domainSuffix = 'Instance'
 

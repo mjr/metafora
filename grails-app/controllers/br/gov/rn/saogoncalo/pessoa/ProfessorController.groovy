@@ -84,43 +84,60 @@ class ProfessorController {
 		
 	}
 
-	def erros
+
 	def salvar(){
 
 		Pessoa pessoa = new Pessoa(params)
-		pessoa.save(flush:true)
-		pessoa.errors.each{erros += it}
 
-		PessoaFisica pessoaFisica = new PessoaFisica(params)
-		pessoaFisica.pessoa = pessoa
-		pessoaFisica.save(flush:true)
-		pessoaFisica.errors.each{erros += it}
+		def professores = Professor.findAll()
 
-		Cidadao cidadao = new Cidadao(params)
-		cidadao.pessoaFisica = pessoaFisica
-		cidadao.save(flush:true)
-		cidadao.errors.each{erros += it}
+		if (pessoa.save(flush:true)){
 
-		Funcionario funcionario = new Funcionario(params)
-		funcionario.cidadao = cidadao
-		funcionario.save(flush:true)
-		funcionario.errors.each{erros += it}
+			PessoaFisica pessoaFisica = new PessoaFisica(params)
+			pessoaFisica.pessoa = pessoa
+			pessoaFisica.save(flush:true)
+			pessoaFisica.errors.each{println it}
 
-		Professor professor = new Professor(params)
-		professor.funcionario = funcionario
+			Cidadao cidadao = new Cidadao(params)
+			cidadao.pessoaFisica = pessoaFisica
+			cidadao.save(flush:true)
+			cidadao.errors.each{println it}
 
-		if(professor.save(flush:true)){
-			professor.errors.each{erros += it}
+			Funcionario funcionario = new Funcionario(params)
+			funcionario.cidadao = cidadao
+			funcionario.save(flush:true)
+			funcionario.errors.each{println it}
 
-			def professores = Professor.findAll()
+			Professor professor = new Professor(params)
+			professor.funcionario = funcionario
+
+			if(professor.save(flush:true)){
+				professor.errors.each{println it}
+
+
+				render(view:"/professor/listarProfessor.gsp", model:[
+					professores:professores,
+					ok : "Professor cadastrado com sucesso!"
+
+				])
+			}else{
+
+				render(view:"/professor/listarProfessor.gsp", model:[
+					professores:professores,
+					erro : "Erro ao Salvar Professor!"
+				])
+			}
+		}else{
+		
+		def erros
+		pessoa.errors.each{erros = it}
+		
+		if  (erros.toString().contains("Pessoa.cpfCnpj.unique.error")){
+		erros = "CPF Já está cadastrado no sistema"}
+			
 
 			render(view:"/professor/listarProfessor.gsp", model:[
 				professores:professores,
-				ok : "Professor cadastrado com sucesso!"
-
-			])
-		}else{
-			render(view:"cadastrar", model:[
 				erro : erros
 			])
 		}

@@ -1,7 +1,5 @@
 package br.gov.rn.saogoncalo.academico
 
-import java.util.Date;
-
 class Matricula {
 	Date dataDaMatricula
 	String matricula
@@ -16,5 +14,6 @@ class Matricula {
 	static mapping = {
 		table name: "matricula", schema:"educacao_academico"
 		version false
+		id generator: 'sequence', params:[sequence:'educacao_academico.matricula_id_seq']
 		}
 }

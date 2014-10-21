@@ -1,7 +1,5 @@
 package br.gov.rn.saogoncalo.academico
 
-import org.hibernate.cfg.IndexColumn;
-
 class Sala {
 	String sala
 	int vagas
@@ -17,5 +15,6 @@ class Sala {
 		table name: "sala", schema:"educacao_academico"
 		vagas defaultValue: null
 		version false
+		id generator: 'sequence', params:[sequence:'educacao_academico.sala_id_seq']
 		}
 }

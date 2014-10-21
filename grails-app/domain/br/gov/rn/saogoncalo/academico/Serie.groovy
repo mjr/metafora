@@ -1,7 +1,5 @@
 package br.gov.rn.saogoncalo.academico
 
-import java.util.Date;
-
 class Serie {
 	String serie
 	Long numeroDeVagas
@@ -20,5 +18,6 @@ class Serie {
 	static mapping = {
 		table name: "serie", schema:"educacao_academico"
 		version false
+		id generator: 'sequence', params:[sequence:'educacao_academico.serie_id_seq']
 		}
 }

@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="shortcut icon" href="images/favicon-setic.png">
+<link rel="shortcut icon" href="images/favicon.ico">
 
 <title><g:layoutTitle default="Sistema Acadêmico"/></title>
 

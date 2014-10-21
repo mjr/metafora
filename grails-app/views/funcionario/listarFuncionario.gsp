@@ -30,6 +30,7 @@
 			<li><g:link controller="Aluno" action="listar">Aluno</g:link></li>
 			<li class="active"><g:link controller="Funcionario"
 					action="listar">Funcionário</g:link></li>
+					<li><g:link controller="Escola" action="listar">Escola</g:link></li>
 		</ul>
 	</div>
 	<!-- CORPO DA PÁGINA -->
@@ -69,7 +70,7 @@
 							<div style="margin-left: -35px" class="opcoes">
 								<ul style="display: inline">
 									<li class="btn btn-info btn-xs"><a style="color: #fff"
-										href="/DBMetafora/funcionario/editarFuncionario/${pessoa.id}"><span
+										href="/Metafora/funcionario/editarFuncionario/${pessoa.id}"><span
 											class="glyphicon glyphicon-pencil"></span></a></li>
 									<li onclick="deletar(${pessoa.id})"
 										class="btn btn-danger btn-xs"><span

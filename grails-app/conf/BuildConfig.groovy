@@ -59,7 +59,7 @@ grails.project.dependency.resolution = {
         // plugins for the compile step
         compile ":scaffolding:2.0.2"
         compile ':cache:1.1.1'
-
+		
         // plugins needed at runtime but not for compilation
         runtime ":hibernate:3.6.10.9" // or ":hibernate4:4.3.4"
         runtime ":database-migration:1.3.8"
@@ -68,6 +68,9 @@ grails.project.dependency.resolution = {
 		compile ":twitter-bootstrap:3.2.1"
 		runtime ':db-reverse-engineer:0.5'
 		compile ":sequence-generator:1.0"
+		compile ":br-validation:0.3"
+		compile ":stella:1.4.1"
+		
         // Uncomment these (or add new ones) to enable additional resources capabilities
         //runtime ":zipped-resources:1.0.1"
         //runtime ":cached-resources:1.1"

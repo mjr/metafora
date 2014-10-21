@@ -72,7 +72,7 @@
 							<div style="margin-left: -35px" class="opcoes">
 								<ul style="display: inline">
 									<li class="btn btn-info btn-xs"><a style="color: #fff"
-										href="/DBMetafora/professor/editarProfessor/${pessoa.id}"><span
+										href="/Metafora/professor/editarProfessor/${pessoa.id}"><span
 											class="glyphicon glyphicon-pencil"></span></a></li>
 									<li onclick="deletar(${pessoa.id})"
 										class="btn btn-danger btn-xs"><span
@@ -152,7 +152,7 @@
 									<label>CPF</label>
 									<div class="controls">
 										<g:textField class="form-control" required="true" id="cpf"
-											name="cpfCnpj" value="" />
+											name="cpfCnpj" value=""/>
 									</div>
 								</div>
 								<br>

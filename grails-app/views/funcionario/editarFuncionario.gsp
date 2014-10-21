@@ -21,6 +21,7 @@
 					action="listar">Professor</g:link></li>
 			<li><g:link controller="Aluno" action="listar">Aluno</g:link></li>
 			<li class="active"><g:link controller="Funcionario" action="listar">Funcionário</g:link></li>
+			<li><g:link controller="Escola" action="listar">Escola</g:link></li>
 		</ul>
 	</div>
 	<!-- CORPO DA PÁGINA -->

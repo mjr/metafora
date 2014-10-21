@@ -71,40 +71,55 @@ class FuncionarioController {
 		}
 	
 	def salvar(){
-		
-				Pessoa pessoa = new Pessoa(params)
-				pessoa.save(flush:true)
-				pessoa.errors.each{println it}
-		
-				PessoaFisica pessoaFisica = new PessoaFisica(params)
-				pessoaFisica.pessoa = pessoa
-				pessoaFisica.save(flush:true)
-				pessoaFisica.errors.each{println it}
-		
-				Cidadao cidadao = new Cidadao(params)
-				cidadao.pessoaFisica = pessoaFisica
-				cidadao.save(flush:true)
-				cidadao.errors.each{println it}
-				
-				Funcionario funcionario = new Funcionario(params)
-				funcionario.cidadao = cidadao
-				funcionario.save(flush:true)
+
+		Pessoa pessoa = new Pessoa(params)
+
+		def funcionarios = Funcionario.findAll()
+
+		if (pessoa.save(flush:true)){
+
+			PessoaFisica pessoaFisica = new PessoaFisica(params)
+			pessoaFisica.pessoa = pessoa
+			pessoaFisica.save(flush:true)
+			pessoaFisica.errors.each{println it}
+
+			Cidadao cidadao = new Cidadao(params)
+			cidadao.pessoaFisica = pessoaFisica
+			cidadao.save(flush:true)
+			cidadao.errors.each{println it}
+
+			Funcionario funcionario = new Funcionario(params)
+			funcionario.cidadao = cidadao
+
+			if(funcionario.save(flush:true)){
 				funcionario.errors.each{println it}
-		
-				if(funcionario.save(flush:true)){
-					funcionario.errors.each{println it}
-		
-					def funcionarios = Funcionario.findAll()
-					
-					render(view:"/funcionario/listarFuncionario.gsp", model:[
-						funcionarios:funcionarios,
-						ok : "Funcionário cadastrado com sucesso!"
-						
-					])
-				}else{
-					render(view:"cadastrar", model:[
-						erro : "Erro ao Salvar!"
-					])
-				}
+
+
+				render(view:"/funcionario/listarFuncionario.gsp", model:[
+					funcionarios:funcionarios,
+					ok : "Funcionário cadastrado com sucesso!"
+
+				])
+			}else{
+
+				render(view:"/funcionario/listarFuncionario.gsp", model:[
+					funcionarios:funcionarios,
+					erro : "Erro ao Salvar Funcionário!"
+				])
 			}
+		}else{
+		
+		def erros
+		pessoa.errors.each{erros = it}
+		
+		if  (erros.toString().contains("Pessoa.cpfCnpj.unique.error")){
+		erros = "CPF Já está cadastrado no sistema"}
+			
+
+			render(view:"/funcionario/listarFuncionario.gsp", model:[
+				funcionarios:funcionarios,
+				erro : erros
+			])
+		}
+	}
 }

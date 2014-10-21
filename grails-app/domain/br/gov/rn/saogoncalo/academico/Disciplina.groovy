@@ -15,5 +15,6 @@ class Disciplina {
 	static mapping = {
 		table name: "disciplina", schema:"educacao_academico"
 		version false
+		id generator: 'sequence', params:[sequence:'educacao_academico.disciplina_id_seq']
 		}
 }

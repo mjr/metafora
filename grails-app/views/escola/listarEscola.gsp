@@ -14,13 +14,23 @@
 </script>
 </head>
 <body>
+<script>
+       function deletar(id) {
+        var resposta = confirm("Deseja exluir esta Escola?");
+
+        if (resposta == true){
+        location.href="/Metafora/escola/deletar/"+id }
+
+       }
+ </script>
 	<!-- MENU LATERAL -->
 	<div id="side">
 		<ul class="nav nav-pills nav-stacked">
-			<li class="active"><g:link controller="Professor"
+			<li><g:link controller="Professor"
 					action="listar">Professor</g:link></li>
 			<li><g:link controller="Aluno" action="listar">Aluno</g:link></li>
 			<li><g:link controller="Funcionario" action="listar">Funcionário</g:link></li>
+			<li class="active"><g:link controller="Escola" action="listar">Escola</g:link></li>
 		</ul>
 	</div>
 	<!-- CORPO DA PÁGINA -->
@@ -57,12 +67,12 @@
 						<td>
 							<div class="opcoes">
 								<ul>
-								<li class="btn btn-info btn-xs"><a href="/DBMetafora/escola/editarEscola/${pessoa.id}"><span class="glyphicon glyphicon-pencil"></span>
+								<li class="btn btn-info btn-xs"><a href="/Metafora/escola/editarEscola/${pessoa.id}"><span class="glyphicon glyphicon-pencil"></span>
 									</a>
 								</li>
-								<button type="button" class="btn btn-danger btn-xs">
-									<span class="glyphicon glyphicon-remove"></span>
-								</button>
+								<li onclick="deletar(${pessoa.id})"
+										class="btn btn-danger btn-xs"><span
+										class="glyphicon glyphicon-remove"></span></li>
 								</ul>
 							</div>
 						</td>

@@ -1,7 +1,5 @@
 package br.gov.rn.saogoncalo.academico
 
-import java.util.Date;
-
 class TurmaDisciplina {
 	String identificacao
 	Date dataInicio
@@ -19,5 +17,6 @@ class TurmaDisciplina {
 	static mapping = {
 	table name: "turma_disciplina", schema:"educacao_academico"
 	version false
+	id generator: 'sequence', params:[sequence:'educacao_academico.turma_disciplina_id_seq']
 	}
 }

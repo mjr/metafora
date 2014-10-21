@@ -11,7 +11,7 @@ class Cidadao {
 		estadoCivil blank:false, nullable:false
 		profissao blank:false, nullable:true
 		
-	}  
+	}
 	
 	static mapping = {
 		table name: "cidadao", schema:"cadastro_unico_pessoal"

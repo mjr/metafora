@@ -19,7 +19,7 @@
         var resposta = confirm("Deseja exluir este Aluno?");
 
         if (resposta == true){
-        location.href="/DBMetafora/aluno/deletar/"+id }
+        location.href="/Metafora/aluno/deletar/"+id }
 
        }
  </script>
@@ -67,7 +67,7 @@
 							<div style="margin-left: -35px" class="opcoes">
 								<ul style="display: inline">
 									<li class="btn btn-info btn-xs"><a style="color: #fff"
-										href="/DBMetafora/aluno/editarAluno/${pessoa.id}"><span
+										href="/Metafora/aluno/editarAluno/${pessoa.id}"><span
 											class="glyphicon glyphicon-pencil"></span></a></li>
 									<li onclick="deletar(${pessoa.id})"
 										class="btn btn-danger btn-xs"><span
