@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<title>Funcionário . Modulo Pessoal</title>
+<title>Funcionário . Módulo Pessoal</title>
 <meta name="layout" content="public" />
 <g:javascript src="jquery.js" />
 <g:javascript src="jquery.maskedinput.js" />
@@ -19,7 +19,7 @@
         var resposta = confirm("Deseja exluir este Funcionário?");
 
         if (resposta == true){
-        location.href="/DBMetafora/funcionario/deletar/"+id }
+        location.href="/projetoMetafora/funcionario/deletar/"+id }
 
        }
  </script>
@@ -28,9 +28,8 @@
 		<ul class="nav nav-pills nav-stacked">
 			<li><g:link controller="Professor" action="listar">Professor</g:link></li>
 			<li><g:link controller="Aluno" action="listar">Aluno</g:link></li>
-			<li class="active"><g:link controller="Funcionario"
-					action="listar">Funcionário</g:link></li>
-					<li><g:link controller="Escola" action="listar">Escola</g:link></li>
+			<li class="active"><g:link controller="Funcionario" action="listar">Funcionário</g:link></li>
+			<li><g:link controller="Escola" action="listar">Escola</g:link></li>
 		</ul>
 	</div>
 	<!-- CORPO DA PÁGINA -->
@@ -70,7 +69,7 @@
 							<div style="margin-left: -35px" class="opcoes">
 								<ul style="display: inline">
 									<li class="btn btn-info btn-xs"><a style="color: #fff"
-										href="/Metafora/funcionario/editarFuncionario/${pessoa.id}"><span
+										href="/projetoMetafora/funcionario/editarFuncionario/${pessoa.id}"><span
 											class="glyphicon glyphicon-pencil"></span></a></li>
 									<li onclick="deletar(${pessoa.id})"
 										class="btn btn-danger btn-xs"><span
