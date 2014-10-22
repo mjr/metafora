@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<title>Editar Funcionário . Modulo Pessoal</title>
+<title>Editar Funcionário . Módulo Pessoal</title>
 <meta name="layout" content="public" />
 <g:javascript src="jquery.js" />
 <g:javascript src="jquery.maskedinput.js" />
@@ -36,7 +36,7 @@
 				${erro}
 			</div>
 		</g:if>
-		<h4 style="margin-bottom: 5px;">Editar Funcionario</h4>
+		<h4 style="margin-bottom: 5px;">Editar Funcionário</h4>
 
 		<g:each in='${funcionarios?}'>
 			<g:set var="pessoa"
@@ -248,7 +248,7 @@
 					<button type="submit" class="btn btn-primary btn">Atualizar</button>
 					<ul style="display: inline-block; margin-left: -30px">
 						<li class="btn btn-default btn"><a
-							href="/DBMetafora/funcionario/listar/">Cancelar</a></li>
+							href="/projetoMetafora/funcionario/listar/">Cancelar</a></li>
 					</ul>
 				</div>
 			</g:form>

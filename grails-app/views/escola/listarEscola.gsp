@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<title>Escola - Modulo Pessoal</title>
+<title>Escola . Módulo Pessoal</title>
 <meta name="layout" content="public" />
 <g:javascript src="jquery.js" />
 <g:javascript src="jquery.maskedinput.js" />
@@ -19,15 +19,14 @@
         var resposta = confirm("Deseja exluir esta Escola?");
 
         if (resposta == true){
-        location.href="/Metafora/escola/deletar/"+id }
+        location.href="/projetoMetafora/escola/deletar/"+id }
 
        }
  </script>
 	<!-- MENU LATERAL -->
 	<div id="side">
 		<ul class="nav nav-pills nav-stacked">
-			<li><g:link controller="Professor"
-					action="listar">Professor</g:link></li>
+			<li><g:link controller="Professor" action="listar">Professor</g:link></li>
 			<li><g:link controller="Aluno" action="listar">Aluno</g:link></li>
 			<li><g:link controller="Funcionario" action="listar">Funcionário</g:link></li>
 			<li class="active"><g:link controller="Escola" action="listar">Escola</g:link></li>
@@ -45,7 +44,7 @@
 				${erro}
 			</div>
 		</g:if>
-		<h4 style="margin-bottom: -35px;">Escolas Cadastrados</h4>
+		<h4 style="margin-bottom: -35px;">Escolas Cadastradas</h4>
 		<table id="example" class="table table-striped table-hover">
 			<g:if test="${!escolas?.isEmpty()})"></g:if>
 			<thead>
@@ -65,12 +64,12 @@
 					<g:set var="pessoaJuridica" value="${it.pessoaJuridica}" />
 					<tr class='linha_registro'>
 						<td>
-							<div class="opcoes">
-								<ul>
-								<li class="btn btn-info btn-xs"><a href="/Metafora/escola/editarEscola/${pessoa.id}"><span class="glyphicon glyphicon-pencil"></span>
-									</a>
-								</li>
-								<li onclick="deletar(${pessoa.id})"
+							<div style="margin-left: -35px" class="opcoes">
+								<ul style="display: inline">
+									<li class="btn btn-info btn-xs"><a style="color: #fff"
+										href="/projetoMetafora/escola/editarEscola/${pessoa.id}"><span
+											class="glyphicon glyphicon-pencil"></span></a></li>
+									<li onclick="deletar(${pessoa.id})"
 										class="btn btn-danger btn-xs"><span
 										class="glyphicon glyphicon-remove"></span></li>
 								</ul>
