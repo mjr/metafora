@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<title>Professor . Modulo Pessoal</title>
+<title>Professor . Módulo Pessoal</title>
 <meta name="layout" content="public" />
 <g:javascript src="jquery.js" />
 <g:javascript src="jquery.maskedinput.js" />
@@ -19,17 +19,17 @@
         var resposta = confirm("Deseja exluir este professor?");
 
         if (resposta == true){
-        location.href="/DBMetafora/professor/deletar/"+id }
+        location.href="/projetoMetafora/professor/deletar/"+id }
 
        }
  </script>
 	<!-- MENU LATERAL -->
 	<div id="side">
 		<ul class="nav nav-pills nav-stacked">
-			<li class="active"><g:link controller="Professor"
-					action="listar">Professor</g:link></li>
+			<li class="active"><g:link controller="Professor" action="listar">Professor</g:link></li>
 			<li><g:link controller="Aluno" action="listar">Aluno</g:link></li>
 			<li><g:link controller="Funcionario" action="listar">Funcionário</g:link></li>
+			<li><g:link controller="Escola" action="listar">Escola</g:link></li>
 		</ul>
 	</div>
 	<!-- CORPO DA PÁGINA -->
@@ -72,7 +72,7 @@
 							<div style="margin-left: -35px" class="opcoes">
 								<ul style="display: inline">
 									<li class="btn btn-info btn-xs"><a style="color: #fff"
-										href="/Metafora/professor/editarProfessor/${pessoa.id}"><span
+										href="/projetoMetafora/professor/editarProfessor/${pessoa.id}"><span
 											class="glyphicon glyphicon-pencil"></span></a></li>
 									<li onclick="deletar(${pessoa.id})"
 										class="btn btn-danger btn-xs"><span
