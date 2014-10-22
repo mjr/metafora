@@ -3,10 +3,10 @@
 <head>
 <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="shortcut icon" href="images/favicon.ico">
+
+<link rel="shortcut icon" href="${resource(dir:'images', file:'faviconSetic.ico')}" type="image/x-icon" />
 
 <title><g:layoutTitle default="Sistema Acadêmico"/></title>
-
 
 <link href="css/bootstrap.min.css" rel="stylesheet" />
 <link href="${resource(dir: 'css', file: 'bootstrap.min.css')}"
@@ -14,7 +14,6 @@
 <link href="css/dataTables.bootstrap.css" rel="stylesheet" />
 <link href="${resource(dir: 'css', file: 'dataTables.bootstrap.css')}"
 	rel="stylesheet">
-
 
 <g:javascript src="jquery.js" />
 <g:javascript src="jquery.js" />
@@ -57,7 +56,7 @@ body>#wrap {
 	float: right;
 	width: 88%;
 	margin-left: 300px;
-	margin-top: -120px;
+	margin-top: -160px;
 	margin-right: 16px;
 }
 #footer {
