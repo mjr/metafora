@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
-		<title>Modulo Pessoal</title>
+		<title>Modulo Academico</title>
 		<meta name="layout" content="public"/>
 	</head>
 	<body>
 		<!-- MENU LATERAL -->
-		<div id="aside">
+		<div id="side">
 			<ul class="nav nav-pills nav-stacked">
 			  <li><g:link controller="ConteudoDaDisciplina" action="listar">Conteúdo da Disciplina</g:link></li>
 			  <li><g:link controller="TurmaDisciplina" action="listar">Curso</g:link></li>
@@ -20,18 +20,53 @@
 			</ul>	
 		</div>
 		<!-- CORPO DA PÁGINA -->
-		<div id="section" class="container">
+		<div id="content" style="margin-top: -360px" >
 			<table id="example" class="display" cellspacing="0" width="100%">
             	<thead>
                 	<tr>
-                    	<th>Nome</th>
-                        <th>Matricula</th>
-                        <th>Ano de Início</th>
-                        <th>Disciplina</th>
-                        <th>Ativo</th>
+						<th> </th>                	
+                    	<th>Horario</th>
+                        <th>Id</th>
+                        <th>Turma-Disciplina</th>
+                        <th>Sala</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
+                	
+                	<!------>
+                	<g:each in='${horario?}'>
+                	<g:set var="sala" value="${it.salaId}" />
+                    	<tr class='linha_registro'>
+						<td>
+
+							<div style="margin-left: -35px" class="opcoes">
+								<ul style="display: inline">
+									<li class="btn btn-info btn-xs"><a style="color: #fff"
+										href="/Metafora/professor/editarProfessor/${it.id}"><span
+											class="glyphicon glyphicon-pencil"></span></a></li>
+									<li onclick="deletar(${it.id})"
+										class="btn btn-danger btn-xs"><span
+										class="glyphicon glyphicon-remove"></span></li>
+								</ul>
+
+							</div>
+						</td>
+		     			<td>
+							${it.horario}
+						</td>
+						<td>
+							${it.id}
+						</td>
+						<td>
+							${it.turmaDisciplinaId}
+						</td>
+						<td>
+							${it.sala.sala}
+						</td>
+					</tr>
+				</g:each>
+                	<!------>
                 	
             	</tbody>
        		</table> 	

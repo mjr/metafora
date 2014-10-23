@@ -60,11 +60,9 @@
 			</thead>
 			<tbody>
 				<g:each in='${professores?}'>
-					<g:set var="pessoa"
-						value="${it.funcionario.cidadao.pessoaFisica.pessoa}" />
+					<g:set var="pessoa" value="${it.funcionario.cidadao.pessoaFisica.pessoa}" />
 					<g:set var="funcionario" value="${it.funcionario }" />
-					<g:set var="pessoaFisica"
-						value="${it.funcionario.cidadao.pessoaFisica}" />
+					<g:set var="pessoaFisica" value="${it.funcionario.cidadao.pessoaFisica}" />
 					<g:set var="cidadao" value="${it.funcionario.cidadao}" />
 					<tr class='linha_registro'>
 						<td>
