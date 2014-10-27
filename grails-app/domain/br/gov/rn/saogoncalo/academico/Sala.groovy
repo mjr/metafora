@@ -13,7 +13,7 @@ class Sala {
 	
 	static mapping = {
 		table name: "sala", schema:"educacao_academico"
-		vagas defaultValue: null
+		//vagas defaultValue: null
 		version false
 		id generator: 'sequence', params:[sequence:'educacao_academico.sala_id_seq']
 		}

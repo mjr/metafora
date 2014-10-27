@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<title>Aluno . Módulo Pessoal</title>
+<title>Aluno . Modulo Pessoal</title>
 <meta name="layout" content="public" />
 <g:javascript src="jquery.js" />
 <g:javascript src="jquery.maskedinput.js" />
@@ -19,7 +19,7 @@
         var resposta = confirm("Deseja exluir este Aluno?");
 
         if (resposta == true){
-        location.href="/projetoMetafora/aluno/deletar/"+id }
+        location.href="/Metafora/aluno/deletar/"+id }
 
        }
  </script>
@@ -29,7 +29,6 @@
 			<li><g:link controller="Professor" action="listar">Professor</g:link></li>
 			<li class="active"><g:link controller="Aluno" action="listar">Aluno</g:link></li>
 			<li><g:link controller="Funcionario" action="listar">Funcionário</g:link></li>
-			<li><g:link controller="Escola" action="listar">Escola</g:link></li>
 		</ul>
 	</div>
 	<!-- CORPO DA PÁGINA -->
@@ -68,7 +67,7 @@
 							<div style="margin-left: -35px" class="opcoes">
 								<ul style="display: inline">
 									<li class="btn btn-info btn-xs"><a style="color: #fff"
-										href="/projetoMetafora/aluno/editarAluno/${pessoa.id}"><span
+										href="/Metafora/aluno/editarAluno/${pessoa.id}"><span
 											class="glyphicon glyphicon-pencil"></span></a></li>
 									<li onclick="deletar(${pessoa.id})"
 										class="btn btn-danger btn-xs"><span

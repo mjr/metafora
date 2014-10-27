@@ -24,11 +24,13 @@
 			<table id="example" class="display" cellspacing="0" width="100%">
             	<thead>
                 	<tr>
-						<th> </th>                	
+						<th> </th>  
+						<th>Código</th>              	
                     	<th>Horario</th>
-                        <th>Id</th>
-                        <th>Turma-Disciplina</th>
-                        <th>Sala</th>
+ 		                <th>Sala</th>
+                        <th>Turma Diciplina</th>
+                        <th>Turma</th>
+                        <th>Disciplina</th>
                         
                     </tr>
                 </thead>
@@ -36,7 +38,12 @@
                 	
                 	<!------>
                 	<g:each in='${horario?}'>
-                	<g:set var="sala" value="${it.salaId}" />
+                	<g:set var="sala" value="${it.salaId}"/>
+                	<g:set var="turmaDisciplina" value="${it.turmaDisciplinaId}"/>
+                	<g:set var="turma" value="${it.turmaDisciplina.turmaId}"/>
+                	<g:set var="disciplina" value="${it.turmaDisciplina.disciplinaLecionadaPorProfessor.disciplinaId}"/>
+                	<g:set var="disciplinaLecionadaPorProfessor" value="${it.turmaDisciplina.disciplinaLecionadaPorProfessor.turmaDisciplina.disciplinaLecionadaPorProfessorId}"/>
+                	
                     	<tr class='linha_registro'>
 						<td>
 
@@ -52,17 +59,23 @@
 
 							</div>
 						</td>
+						<td>
+							${it.id}
+						</td>
 		     			<td>
 							${it.horario}
 						</td>
 						<td>
-							${it.id}
-						</td>
-						<td>
-							${it.turmaDisciplinaId}
-						</td>
-						<td>
 							${it.sala.sala}
+						</td>
+						<td>
+							${it.turmaDisciplina.identificacao}
+						</td>
+						<td>
+							${it.turmaDisciplina.turma.turma}
+						</td>
+						<td>
+							${it.turmaDisciplina.disciplinaLecionadaPorProfessor.disciplina.disciplina}
 						</td>
 					</tr>
 				</g:each>

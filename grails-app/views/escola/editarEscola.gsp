@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<title>Escola . Módulo Pessoal</title>
+<title>Escola . Modulo Pessoal</title>
 <meta name="layout" content="public" />
 <g:javascript src="jquery.js" />
 <g:javascript src="jquery.maskedinput.js" />
@@ -17,7 +17,7 @@
 	<!-- MENU LATERAL -->
 	<div id="side">
 		<ul class="nav nav-pills nav-stacked">
-			<li><g:link controller="Professor"
+			<li class="active"><g:link controller="Professor"
 					action="listar">Professor</g:link></li>
 			<li><g:link controller="Aluno" action="listar">Aluno</g:link></li>
 			<li><g:link controller="Funcionario" action="listar">Funcionário</g:link></li>
@@ -105,7 +105,7 @@
 					<button type="submit" class="btn btn-primary btn">Atualizar</button>
 					<ul style="display: inline-block; margin-left: -30px">
 						<li class="btn btn-default btn"><a
-							href="/projetoMetafora/escola/listar/">Cancelar</a></li>
+							href="/DBMetafora/escola/listar/">Cancelar</a></li>
 					</ul>
 				</div>
 			</g:form>
