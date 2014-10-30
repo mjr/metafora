@@ -98,12 +98,16 @@
 											class="glyphicon glyphicon-pencil"></span></a></li>
 									<li onclick="deletar(${it.id})"
 										class="btn btn-danger btn-xs"><span
+<<<<<<< HEAD
 >>>>>>> criacao de horarios
+=======
+>>>>>>> ce0b3ad223c2afc5811241fa705c1a70ce066e81
 										class="glyphicon glyphicon-remove"></span></li>
 								</ul>
 
 							</div>
 						</td>
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 						<td>
@@ -133,6 +137,8 @@
 		</table>
 		<script type="text/javascript">
 =======
+=======
+>>>>>>> ce0b3ad223c2afc5811241fa705c1a70ce066e81
 		     			<td>
 							${it.horario}
 						</td>

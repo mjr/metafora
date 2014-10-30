@@ -21,9 +21,5 @@ class HorarioController {
 
 		render (view:"/horario/listarHorario.gsp", model:[horario:horario])
 	}
-<<<<<<< HEAD
 }
 >>>>>>> criacao de horarios
-=======
-}
->>>>>>> ce0b3ad223c2afc5811241fa705c1a70ce066e81
