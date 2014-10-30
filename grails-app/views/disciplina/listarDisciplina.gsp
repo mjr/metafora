@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<title>Disciplina . Modulo Academico</title>
+<title>Disciplina . Módulo Acadêmico</title>
 <meta name="layout" content="public" />
 <g:javascript src="jquery.js" />
 <g:javascript src="jquery.maskedinput.js" />
@@ -19,20 +19,26 @@
         var resposta = confirm("Deseja exluir esta Disciplina?");
 
         if (resposta == true){
-        location.href="/projetoMetaforaLocal/disciplina/deletar/"+id }
+        location.href="/projetoMetafora/disciplina/deletar/"+id }
 
        }
  </script>
 	<!-- MENU LATERAL -->
 	<div id="side">
-		<ul class="nav nav-pills nav-stacked">
-			<li><g:link controller="Professor" action="listar">Professor</g:link></li>
-			<li class="active"><g:link controller="Aluno" action="listar">Aluno</g:link></li>
-			<li><g:link controller="Funcionario" action="listar">Funcionário</g:link></li>
-		</ul>
-	</div>
+			<ul class="nav nav-pills nav-stacked">
+			  <li><g:link controller="ConteudoDaDisciplina" action="listar">Conteúdo da Disciplina</g:link></li>
+			  <li><g:link controller="TurmaDisciplina" action="listar">Curso</g:link></li>
+			  <li class="active"><g:link controller="Disciplina" action="listar">Disciplina</g:link></li>
+			  <li><g:link controller="DisciplinaLecionadaPorProfessor" action="listar">Disciplina por Professor</g:link></li>
+			  <li><g:link controller="Horario" action="listar">Horário</g:link></li>
+			  <li><g:link controller="Matricula" action="listar">Matricula</g:link></li>
+			  <li><g:link controller="Sala" action="listar">Sala</g:link></li>
+			  <li><g:link controller="Serie" action="listar">Série</g:link></li>
+			  <li><g:link controller="Turma" action="listar">Turma</g:link></li>
+			</ul>	
+		</div>
 	<!-- CORPO DA PÁGINA -->
-	<div id="content">
+	<div id="content-academico">
 		<g:if test="${ok}">
 			<div class="alert alert-success">
 				${ok}
@@ -49,8 +55,8 @@
 			<thead>
 				<tr>
 					<th style="width: 40px;"></th>
-					<th style="width: 120px;">Disciplina</th>
-					<th style="width: 60px;">Carga Horaria</th>
+					<th style="width: 450px;">Disciplina</th>
+					<th style="width: 450px;">Carga Horaria</th>
 				
 					
 				</tr>
@@ -65,7 +71,7 @@
 							<div style="margin-left: -35px" class="opcoes">
 								<ul style="display: inline">
 									<li class="btn btn-info btn-xs"><a style="color: #fff"
-										href="/projetoMetaforaLocal/disciplina/editarDisciplina/${it.id}"><span
+										href="/projetoMetafora/disciplina/editarDisciplina/${it.id}"><span
 											class="glyphicon glyphicon-pencil"></span></a></li>
 									<li onclick="deletar(${it.id})"
 										class="btn btn-danger btn-xs"><span

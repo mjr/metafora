@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<title>Matricula . Modulo Academico</title>
+<title>Matricula . Modulo Acadêmico</title>
 <meta name="layout" content="public" />
 <g:javascript src="jquery.js" />
 <g:javascript src="jquery.maskedinput.js" />
@@ -26,13 +26,19 @@
 	<!-- MENU LATERAL -->
 	<div id="side">
 		<ul class="nav nav-pills nav-stacked">
-			<li><g:link controller="Professor" action="listar">Professor</g:link></li>
-			<li class="active"><g:link controller="Aluno" action="listar">Aluno</g:link></li>
-			<li><g:link controller="Funcionario" action="listar">Funcionário</g:link></li>
-		</ul>
+			  <li><g:link controller="ConteudoDaDisciplina" action="listar">Conteúdo da Disciplina</g:link></li>
+			  <li><g:link controller="TurmaDisciplina" action="listar">Curso</g:link></li>
+			  <li><g:link controller="Disciplina" action="listar">Disciplina</g:link></li>
+			  <li><g:link controller="DisciplinaLecionadaPorProfessor" action="listar">Disciplina por Professor</g:link></li>
+			  <li><g:link controller="Horario" action="listar">Horário</g:link></li>
+			  <li class="active"><g:link controller="Matricula" action="listar">Matricula</g:link></li>
+			  <li><g:link controller="Sala" action="listar">Sala</g:link></li>
+			  <li><g:link controller="Serie" action="listar">Série</g:link></li>
+			  <li><g:link controller="Turma" action="listar">Turma</g:link></li>
+			</ul>	
 	</div>
 	<!-- CORPO DA PÁGINA -->
-	<div id="content">
+	<div id="content-academico">
 		<g:if test="${ok}">
 			<div class="alert alert-success">
 				${ok}
@@ -48,9 +54,9 @@
 			<g:if test="${!matriculas?.isEmpty()})"></g:if>
 			<thead>
 				<tr>
-					
-					<th style="width: 280px;">Data da Matricula</th>
-					<th style="width: 60px;">Matricula</th>
+					<th style="width: 40px;"></th>
+					<th style="width: 500px;">Data da Matricula</th>
+					<th style="width: 500px;">Matricula</th>
 				
 					
 				</tr>
@@ -60,7 +66,20 @@
 				
 				
 					<tr class='linha_registro'>
-						
+						<td>
+
+							<div style="margin-left: -35px" class="opcoes">
+								<ul style="display: inline">
+									<li class="btn btn-info btn-xs"><a style="color: #fff"
+										href="/projetoMetafora/disciplina/editarDisciplina/${it.id}"><span
+											class="glyphicon glyphicon-pencil"></span></a></li>
+									<li onclick="deletar(${it.id})"
+										class="btn btn-danger btn-xs"><span
+										class="glyphicon glyphicon-remove"></span></li>
+								</ul>
+
+							</div>
+						</td>
 						<td><g:formatDate format="dd/MM/yyyy"
 								date="${it.dataDaMatricula}" />
 							

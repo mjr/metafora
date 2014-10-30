@@ -4,7 +4,7 @@
 <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-<link rel="shortcut icon" href="${resource(dir:'images', file:'faviconSetic.ico')}" type="image/x-icon" />
+<link rel="shortcut icon" href="${resource(dir:'images', file:'favicon.ico')}" type="image/x-icon" />
 
 <title><g:layoutTitle default="Sistema Acadêmico"/></title>
 
@@ -57,6 +57,13 @@ body>#wrap {
 	width: 88%;
 	margin-left: 300px;
 	margin-top: -160px;
+	margin-right: 16px;
+}
+#content-academico{
+	float: right;
+	width: 88%;
+	margin-left: 300px;
+	margin-top: -410px;
 	margin-right: 16px;
 }
 #footer {

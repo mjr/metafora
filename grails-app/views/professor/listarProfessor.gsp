@@ -14,7 +14,7 @@
 </script>
 </head>
 <body>
-<script>
+	<script>
        function deletar(id) {
         var resposta = confirm("Deseja exluir este professor?");
 
@@ -26,7 +26,8 @@
 	<!-- MENU LATERAL -->
 	<div id="side">
 		<ul class="nav nav-pills nav-stacked">
-			<li class="active"><g:link controller="Professor" action="listar">Professor</g:link></li>
+			<li class="active"><g:link controller="Professor"
+					action="listar">Professor</g:link></li>
 			<li><g:link controller="Aluno" action="listar">Aluno</g:link></li>
 			<li><g:link controller="Funcionario" action="listar">Funcionário</g:link></li>
 			<li><g:link controller="Escola" action="listar">Escola</g:link></li>
@@ -60,9 +61,11 @@
 			</thead>
 			<tbody>
 				<g:each in='${professores?}'>
-					<g:set var="pessoa" value="${it.funcionario.cidadao.pessoaFisica.pessoa}" />
+					<g:set var="pessoa"
+						value="${it.funcionario.cidadao.pessoaFisica.pessoa}" />
 					<g:set var="funcionario" value="${it.funcionario }" />
-					<g:set var="pessoaFisica" value="${it.funcionario.cidadao.pessoaFisica}" />
+					<g:set var="pessoaFisica"
+						value="${it.funcionario.cidadao.pessoaFisica}" />
 					<g:set var="cidadao" value="${it.funcionario.cidadao}" />
 					<tr class='linha_registro'>
 						<td>
@@ -150,7 +153,7 @@
 									<label>CPF</label>
 									<div class="controls">
 										<g:textField class="form-control" required="true" id="cpf"
-											name="cpfCnpj" value=""/>
+											name="cpfCnpj" value="" />
 									</div>
 								</div>
 								<br>
