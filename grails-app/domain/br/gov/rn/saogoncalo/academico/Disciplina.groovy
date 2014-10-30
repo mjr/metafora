@@ -4,8 +4,7 @@ class Disciplina {
 	String disciplina
 	String cargaHoraria
 
-	static hasMany = [disciplinaLecionadaPorProfessor:DisciplinaLecionadaPorProfessor,
-		conteudoDaDisciplina:ConteudoDaDisciplina]
+	static hasMany = [disciplinaLecionadaPorProfessor:DisciplinaLecionadaPorProfessor, conteudoDisciplina:ConteudoDaDisciplina]
 	
 
 	static constraints = {

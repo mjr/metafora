@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<title>Editar Aluno . Módulo Pessoal</title>
+<title>Editar Aluno . Modulo Pessoal</title>
 <meta name="layout" content="public" />
 <g:javascript src="jquery.js" />
 <g:javascript src="jquery.maskedinput.js" />
@@ -230,7 +230,7 @@
 					<button type="submit" class="btn btn-primary btn">Atualizar</button>
 					<ul style="display: inline-block; margin-left: -30px">
 						<li class="btn btn-default btn"><a
-							href="/projetoMetafora/aluno/listar/">Cancelar</a></li>
+							href="/DBMetafora/aluno/listar/">Cancelar</a></li>
 					</ul>
 				</div>
 			</g:form>

@@ -4,10 +4,11 @@ class TurmaDisciplina {
 	String identificacao
 	Date dataInicio
 	Date dataTermino
-	
-	static belongsTo = [turma:Turma,
-		disciplinaLecionadaPorProfessor:DisciplinaLecionadaPorProfessor]
+		
 	static hasMany = [horario:Horario]
+	
+	static belongsTo = [turma:Turma, disciplinaLecionadaPorProfessor:DisciplinaLecionadaPorProfessor]
+	
 	
 	static constraints = {
 		identificacao unique:true, blank:false, nullable:false

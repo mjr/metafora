@@ -6,7 +6,7 @@
 	</head>
 	<body>
 		<!-- MENU LATERAL -->
-		<div id="aside">
+		<div id="side">
 			<ul class="nav nav-pills nav-stacked">
 			  <li><g:link controller="ConteudoDaDisciplina" action="listar">Conteúdo da Disciplina</g:link></li>
 			  <li><g:link controller="TurmaDisciplina" action="listar">Curso</g:link></li>

@@ -6,7 +6,7 @@ class Serie {
 	Date dataDeInicio
 	Date dataDeTermino
 
-	static hasMany = [turma:Turma]
+	//static hasMany = [turma:Turma]
 
 	static constraints = {
 		serie blank:false, nullable:false
