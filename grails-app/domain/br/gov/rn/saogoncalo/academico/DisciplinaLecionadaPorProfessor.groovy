@@ -4,8 +4,9 @@ class DisciplinaLecionadaPorProfessor {
 	String situacao
 	Date data
 	
-	static hasMany = [turmaDisciplina:TurmaDisciplina]
 	static belongsTo = [disciplina:Disciplina]
+	
+	static hasMany = [turmaDisciplina:TurmaDisciplina]
 	
 	static constraints = {
 		situacao blank:false, nullable:false

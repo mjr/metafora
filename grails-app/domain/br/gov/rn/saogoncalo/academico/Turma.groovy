@@ -4,9 +4,9 @@ class Turma {
 	String turma
 	int vagas
 	
-	static belongsTo = [serie:Serie]
-	static hasMany = [matricula:Matricula, turmaDisciplina:TurmaDisciplina]
+	static hasMany = [turmaDisciplina:TurmaDisciplina]
 	
+
 	static constraints = {
 		turma blank:false, nullable:false
 		vagas blank:false, nullable:false

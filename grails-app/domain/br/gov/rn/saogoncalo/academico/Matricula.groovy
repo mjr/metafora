@@ -4,7 +4,7 @@ class Matricula {
 	Date dataDaMatricula
 	String matricula
 	
-	static belongsTo = [turma:Turma]
+//	static belongsTo = [turma:Turma]
 	
 	static constraints = {
 		dataDaMatricula nullable:false, blank:false
