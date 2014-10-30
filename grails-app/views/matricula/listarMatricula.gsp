@@ -1,212 +1,144 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-<title>Matricula . Modulo Academico</title>
-<meta name="layout" content="public" />
-<g:javascript src="jquery.js" />
-<g:javascript src="jquery.maskedinput.js" />
-</head>
-<script type="text/javascript">
-	$().ready(function() {
-		$('#cpf').mask('999.999.999-99');
-
-	});
-</script>
-</head>
-<body>
-<script>
-       function deletar(id) {
-        var resposta = confirm("Deseja exluir este Aluno?");
-
-        if (resposta == true){
-        location.href="/Metafora/aluno/deletar/"+id }
-
-       }
- </script>
-	<!-- MENU LATERAL -->
-	<div id="side">
-		<ul class="nav nav-pills nav-stacked">
-			<li><g:link controller="Professor" action="listar">Professor</g:link></li>
-			<li class="active"><g:link controller="Aluno" action="listar">Aluno</g:link></li>
-			<li><g:link controller="Funcionario" action="listar">Funcionário</g:link></li>
-		</ul>
-	</div>
-	<!-- CORPO DA PÁGINA -->
-	<div id="content">
-		<g:if test="${ok}">
-			<div class="alert alert-success">
-				${ok}
-			</div>
-		</g:if>
-		<g:if test="${erro}">
-			<div class="alert alert-danger">
-				${erro}
-			</div>
-		</g:if>
-		<h4 style="margin-bottom: -35px;">Matriculas Cadastradas</h4>
-		<table id="example" class="table table-striped table-hover">
-			<g:if test="${!matriculas?.isEmpty()})"></g:if>
-			<thead>
-				<tr>
-					
-					<th style="width: 280px;">Data da Matricula</th>
-					<th style="width: 60px;">Matricula</th>
-				
-					
-				</tr>
-			</thead>
-			<tbody>
-				<g:each in='${matriculas?}'>
-				
-				
-					<tr class='linha_registro'>
-						
-						<td><g:formatDate format="dd/MM/yyyy"
-								date="${it.dataDaMatricula}" />
-							
-						</td>
-						<td>
-							${it.matricula}
-						</td>
-						
-					</tr>
-				</g:each>
-
-			</tbody>
-		</table>
-		<script type="text/javascript">
-			$(document).ready(function() {
-				$('#example').DataTable();
-				var tabela = $('#example').dataTable();
-				// Ordena por nome e "desempata" com o id
-				tabela.fnSort([ [ 1, 'asc' ] ]);
-			});
-		</script>
-		<!-- Button trigger modal -->
-		<button class="btn btn-primary" data-toggle="modal"
-			data-target="#myModal">Cadastrar</button>
-		<!-- Modal -->
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-			aria-labelledby="myModalLabel" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">
-							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-						</button>
-						<h4 class="modal-title" id="myModalLabel">Cadastro de Aluno</h4>
-					</div>
-					<div class="modal-body">
-						<g:form controller="Aluno" action="salvar" class="form">
-							<fieldset>
-								<div class="form-heading">
-									<label>Nome</label>
-									<div class="controls">
-										<g:textField class="form-control" required="true" name="nome"
-											value="" />
-									</div>
-								</div>
-								<br>
-								<div class="form-heading">
-									<label>Data de Nascimento</label>
-									<div class="controls">
-										<g:formatDate format="yyyy-MM-dd" date="${date}" />
-										<g:datePicker noSelection="['':'']" precision="day"
-											class="form-control" required="true" name="dataDeNascimento"
-											value="" />
-
-									</div>
-								</div>
-								<br>
-								<div class="form-heading">
-									<label>CPF</label>
-									<div class="controls">
-										<g:textField class="form-control"  id="cpf"
-											name="cpfCnpj" value="" />
-									</div>
-								</div>
-								<br>
-								<div class="form-heading">
-									<label>Número do Registro de Cartório</label>
-									<div class="controls">
-										<g:textField class="form-control" name="rcNumero" value="" />
-									</div>
-								</div>
-								<br>
-								<div class="form-heading">
-									<label>Nome do Cartório do Registro de Cartório</label>
-									<div class="controls">
-										<g:textField class="form-control" name="rcNomeDoCartorio"
-											value="" />
-									</div>
-								</div>
-								<br>
-								<div class="form-heading">
-									<label>Nome do Livro do Registro de Cartório</label>
-									<div class="controls">
-										<g:textField class="form-control" name="rcNomeDoLivro"
-											value="" />
-									</div>
-								</div>
-								<br>
-								<div class="form-heading">
-									<label>Folha do Livro do Registro de Cartório</label>
-									<div class="controls">
-										<g:textField class="form-control" name="rcFolhaDoLivro"
-											value="" />
-									</div>
-								</div>
-								<br>
-								<div class="form-heading">
-									<label>Sexo</label>
-									<div class="controls">
-										<label class="radio-inline"> <input type="radio"
-											name="sexo" id="inlineRadio1" value="MASCULINO">MASCULINO
-										</label> <label class="radio-inline"> <input type="radio"
-											name="sexo" id="inlineRadio2" value="FEMININO">FEMININO
-										</label>
-									</div>
-								</div>
-								<br>
-								<div class="form-heading">
-									<label>Nacionalidade</label>
-									<div class="controls">
-										<g:textField class="form-control" required="true"
-											name="nacionalidade" value="" />
-									</div>
-								</div>
-								<br>
-								<div class="form-heading">
-									<label>Estado Civil</label>
-									<div class="controls">
-										<select class="form-control" name="estadoCivil">
-											<option value="null">Selecione...</option>
-											<option value="SOLTEIRO(A)">SOLTEIRO(A)</option>
-											<option value="CASADO(A)">CASADO(A)</option>
-											<option value="DIVORCIADO(A)">DIVORCIADO(A)</option>
-											<option value="VIÚVO(A)">VIÚVO(A)</option>
-										</select>
-									</div>
-								</div>
-								<br>
-								<div class="form-heading">
-									<label>Número de Inscrição</label>
-									<div class="controls">
-										<g:textField class="form-control" name="numeroDeInscricao"
-											value="" />
-									</div>
-								</div>
-								<br>
-							</fieldset>
-							<div class="modal-footer">
-								<button type="submit" class="btn btn-primary btn">Cadastrar</button>
-								<input type="reset" class="btn btn" value="Limpar">
-							</div>
-						</g:form>
-					</div>
-				</div>
-			</div>
+	<head>
+		<title>Modulo Pessoal</title>
+		<meta name="layout" content="public"/>
+	</head>
+	<body>
+		<!-- MENU LATERAL -->
+		<div id="aside">
+			<ul class="nav nav-pills nav-stacked">
+			  <li><g:link controller="ConteudoDaDisciplina" action="listar">Conteúdo da Disciplina</g:link></li>
+			  <li><g:link controller="TurmaDisciplina" action="listar">Curso</g:link></li>
+			  <li><g:link controller="Disciplina" action="listar">Disciplina</g:link></li>
+			  <li><g:link controller="DisciplinaLecionadaPorProfessor" action="listar">Disciplina por Professor</g:link></li>
+			  <li><g:link controller="Horario" action="listar">Horario</g:link></li>
+			  <li class="active"><g:link controller="Matricula" action="listar">Matricula</g:link></li>
+			  <li><g:link controller="Sala" action="listar">Sala</g:link></li>
+			  <li><g:link controller="Serie" action="listar">Serie</g:link></li>
+			  <li><g:link controller="Turma" action="listar">Turma</g:link></li>
+			</ul>	
 		</div>
-	</div>
-</body>
+		<!-- CORPO DA PÁGINA -->
+		<div id="section" class="container">
+			<table id="example" class="display" cellspacing="0" width="100%">
+            	<thead>
+                	<tr>
+                    	<th>Nome</th>
+                        <th>Matricula</th>
+                        <th>Ano de Início</th>
+                        <th>Disciplina</th>
+                        <th>Ativo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                	
+            	</tbody>
+       		</table> 	
+			<script type="text/javascript">
+			$('#example')
+				.removeClass( 'display' )
+				.addClass('table table-striped table-bordered table-hover');
+			</script>
+			<!-- Button trigger modal -->
+			<button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+			  Cadastrar
+			</button>
+			<button class="btn btn-primary" data-toggle="moda2" data-target="#myModal">
+			  Ler
+			</button>
+			<button class="btn btn-primary" data-toggle="moda3" data-target="#myModal">
+			  Editar
+			</button>
+			<button class="btn btn-primary" data-toggle="moda4" data-target="#myModal">
+			  Apagar
+			</button>
+			
+			<!-- Modal -->
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			  <div class="modal-dialog">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+			        <h4 class="modal-title" id="myModalLabel">Cadastro</h4>
+			      </div>
+			      <div class="modal-body">
+			        <form role="form">
+		                <div class="row">
+		                    <div class="col-xs-7">
+		                        <label for="exampleInputNome1">Nome</label>
+		                        <input type="text" class="form-control" id="exampleInputNome1" placeholder="Nome Completo">
+		                    </div>
+		                </div>
+		                <br/>
+		                <div class="row">
+		                    <div class="col-xs-3">
+		                        <label for="exampleInputRG1">RG</label>
+		                        <input type="number" class="form-control" id="exampleInputRG1" min="000000001" max="999999999" size="12" maxlength="9" placeholder="RG">
+		                    </div>
+		                </div>
+		                <br/>
+		                <div class="row">
+		                    <div class="col-xs-3">
+		                        <label for="exampleInputCPF1">CPF</label>
+		                        <input type="number" class="form-control" id="exampleInputCPF1" min="00100000000" max="99999999999" maxlength="11" placeholder="CPF">
+		                    </div>
+		                </div>
+		                <br/>
+		                <div class="form-group">
+		                    <label for="exampleInputSexo1" id="exampleInputSexo1">Sexo</label><br/>
+		                    <label class="radio-inline">
+		                        <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> Masculino
+		                    </label>
+		                    <label class="radio-inline">
+		                        <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Feminino
+		                    </label>
+		                </div>
+		                <br/>
+		                <div class="row">
+		                    <div class="col-xs-3">
+		                        <label for="exampleInputMatricula1">Matricula</label>
+		                        <input type="number" class="form-control" id="exampleInputMatricula1" min="20141" max="2014200" placeholder="Matricula">
+		                    </div>
+		                </div>
+		                <br/>
+		                <div class="row">
+		                    <div class="col-xs-6">
+		                        <label for="exampleInputEmail1">Email</label>
+		                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+		                    </div>
+		                </div>
+		                <br/>
+		                <div class="row">
+		                    <div class="col-xs-3">
+		                        <label for="exampleInputTel1">Telefone</label>
+		                        <input type="tel" class="form-control" id="exampleInputTel1" placeholder="Telefone">
+		                    </div>
+		                </div>
+		                <br/>
+		                <div class="row">
+		                    <div class="col-xs-4">
+		                        <label for="exampleInputDisciplina1">Disciplina</label>
+		                        <select id="exampleInputDisciplina1" class="form-control">
+		                            <option>Português</option>
+		                            <option>Matemática</option>
+		                            <option>Física</option>
+		                            <option>Geografia</option>
+		                            <option>Música</option>
+		                        </select>
+		                    </div>
+		                </div>
+		                <br/>
+		                <br/>
+		            </form>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+			        <button type="button" class="btn btn-primary">Salvar</button>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+		</div>	
+	</body> 
 </html>
