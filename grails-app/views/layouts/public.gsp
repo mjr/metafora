@@ -95,8 +95,7 @@ body>#wrap {
 									<ul class="dropdown-menu" role="menu">
 
 										<li><g:link controller="Pessoa" action="pessoal">Pessoal</g:link></li>
-										<li><g:link controller="ConteudoDaDisciplina"
-												action="academico">Acadêmico</g:link></li>
+										<li><g:link controller="Academico" action="academico">Acadêmico</g:link></li>
 									</ul></li>
 							</ul>
 							<ul class="nav navbar-nav navbar-right">
