@@ -1,14 +1,16 @@
 package br.gov.rn.saogoncalo.pessoa
 
+import br.gov.rn.saogoncalo.academico.Sala
+
 class Escola {
 	PessoaJuridica pessoaJuridica
 	String inepDaEscola
 	
-
+	static hasMany = [sala:Sala]
+	
 	static constraints = {
 	
 		inepDaEscola blank:false, nullable:true
-		
 		
 		}
 	
