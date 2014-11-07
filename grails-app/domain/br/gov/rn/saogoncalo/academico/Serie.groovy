@@ -6,7 +6,7 @@ class Serie {
 	Date dataDeInicio
 	Date dataDeTermino
 
-	//static hasMany = [turma:Turma]
+	static hasMany = [turma:Turma]
 
 	static constraints = {
 		serie blank:false, nullable:false
@@ -17,6 +17,7 @@ class Serie {
 	
 	static mapping = {
 		table name: "serie", schema:"educacao_academico"
+		
 		version false
 		id generator: 'sequence', params:[sequence:'educacao_academico.serie_id_seq']
 		}

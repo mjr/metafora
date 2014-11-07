@@ -7,6 +7,15 @@
 <g:javascript src="jquery.maskedinput.js" />
 </head>
 <body>
+	<script>
+       function deletar(id) {
+        var resposta = confirm("Deseja exluir esta Turma?");
+
+        if (resposta == true){
+        location.href="/projetoMetafora/turma/deletar/"+id }
+
+       }
+ </script>
 	<!-- MENU LATERAL -->
 	<div id="side">
 		<ul class="nav nav-pills nav-stacked">
@@ -38,15 +47,41 @@
 		<table id="example" class="table table-striped table-hover">
 			<thead>
 				<tr>
-					<th>Nome</th>
-					<th>Matricula</th>
-					<th>Ano de Início</th>
-					<th>Disciplina</th>
-					<th>Ativo</th>
+					<th></th>
+					<th>Turma</th>
+					<th>Vagas</th>
+					<th>Série</th>
 				</tr>
 			</thead>
 			<tbody>
+				<g:each in='${turmas?}'>
+					
+					<tr class='linha_registro'>
+						<td>
 
+							<div style="margin-left: -35px" class="opcoes">
+								<ul style="display: inline">
+									<li class="btn btn-info btn-xs"><a style="color: #fff"
+										href="/projetoMetafora/turma/editarTurma/${it.id}"><span
+											class="glyphicon glyphicon-pencil"></span></a></li>
+									<li onclick="deletar(${it.id})" class="btn btn-danger btn-xs"><span
+										class="glyphicon glyphicon-remove"></span></li>
+								</ul>
+
+							</div>
+						</td>
+						<td>
+							${it.turma}
+						</td>
+						<td>
+							${it.vagas}
+						</td>
+						<td>
+							${it.serie.serie}
+						</td>
+
+					</tr>
+				</g:each>
 			</tbody>
 		</table>
 		<script type="text/javascript">
@@ -73,85 +108,46 @@
 						<h4 class="modal-title" id="myModalLabel">Cadastro</h4>
 					</div>
 					<div class="modal-body">
-						<form role="form">
+						<g:form controller="Turma" action="salvar" class="form">
+							<fieldset>
 							<div class="row">
 								<div class="col-xs-7">
-									<label for="exampleInputNome1">Nome</label> <input type="text"
-										class="form-control" id="exampleInputNome1"
-										placeholder="Nome Completo">
+									<g:hiddenField name="id" value="id" />
+								</div>
+							
+							</div>
+							<div class="row">
+								<div class="col-xs-7">
+									<label for="exampleInputTurma1">Nome da Turma</label> <g:textField class="form-control" required="true"
+											name="turma" value="" />
 								</div>
 							</div>
 							<br />
 							<div class="row">
 								<div class="col-xs-3">
-									<label for="exampleInputRG1">RG</label> <input type="number"
-										class="form-control" id="exampleInputRG1" min="000000001"
-										max="999999999" size="12" maxlength="9" placeholder="RG">
+									<label for="exampleInputVagas1">Nº de Vagas</label> <div class="controls">
+										<g:textField class="form-control" required="true"
+											name="vagas" value="" />
+									</div>
 								</div>
 							</div>
 							<br />
 							<div class="row">
 								<div class="col-xs-3">
-									<label for="exampleInputCPF1">CPF</label> <input type="number"
-										class="form-control" id="exampleInputCPF1" min="00100000000"
-										max="99999999999" maxlength="11" placeholder="CPF">
+									<label for="exampleInputSerieId1">Série</label>
+									<g:select name="serieId" from="${br.gov.rn.saogoncalo.academico.Serie.list()}"
+										value="${id}" optionKey="id" optionValue="serie" />
 								</div>
 							</div>
-							<br />
-							<div class="form-group">
-								<label for="exampleInputSexo1" id="exampleInputSexo1">Sexo</label><br />
-								<label class="radio-inline"> <input type="radio"
-									name="inlineRadioOptions" id="inlineRadio1" value="option1">
-									Masculino
-								</label> <label class="radio-inline"> <input type="radio"
-									name="inlineRadioOptions" id="inlineRadio2" value="option2">
-									Feminino
-								</label>
-							</div>
-							<br />
-							<div class="row">
-								<div class="col-xs-3">
-									<label for="exampleInputMatricula1">Matricula</label> <input
-										type="number" class="form-control" id="exampleInputMatricula1"
-										min="20141" max="2014200" placeholder="Matricula">
-								</div>
-							</div>
-							<br />
-							<div class="row">
-								<div class="col-xs-6">
-									<label for="exampleInputEmail1">Email</label> <input
-										type="email" class="form-control" id="exampleInputEmail1"
-										placeholder="Email">
-								</div>
-							</div>
-							<br />
-							<div class="row">
-								<div class="col-xs-3">
-									<label for="exampleInputTel1">Telefone</label> <input
-										type="tel" class="form-control" id="exampleInputTel1"
-										placeholder="Telefone">
-								</div>
-							</div>
-							<br />
-							<div class="row">
-								<div class="col-xs-4">
-									<label for="exampleInputDisciplina1">Disciplina</label> <select
-										id="exampleInputDisciplina1" class="form-control">
-										<option>Português</option>
-										<option>Matemática</option>
-										<option>Física</option>
-										<option>Geografia</option>
-										<option>Música</option>
-									</select>
-								</div>
-							</div>
-							<br /> <br />
-						</form>
-					</div>
+							<br /> <br /> <br />
+						</fieldset>
+						
+					
 					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-						<button type="button" class="btn btn-primary">Salvar</button>
-					</div>
+								<button type="submit" class="btn btn-primary btn">Cadastrar</button>
+								<input type="reset" class="btn btn" value="Limpar">
+							</div>
+							</g:form>
 				</div>
 			</div>
 		</div>
