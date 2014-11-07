@@ -6,12 +6,7 @@
 <g:javascript src="jquery.js" />
 <g:javascript src="jquery.maskedinput.js" />
 </head>
-<script type="text/javascript">
-	$().ready(function() {
-		$('#cpf').mask('999.999.999-99');
 
-	});
-</script>
 </head>
 <body>
 <script>
@@ -26,9 +21,16 @@
 	<!-- MENU LATERAL -->
 	<div id="side">
 		<ul class="nav nav-pills nav-stacked">
-			<li><g:link controller="Professor" action="listar">Professor</g:link></li>
-			<li class="active"><g:link controller="Aluno" action="listar">Aluno</g:link></li>
-			<li><g:link controller="Funcionario" action="listar">Funcionário</g:link></li>
+			<li><g:link controller="ConteudoDaDisciplina" action="listar">Conteúdo da Disciplina</g:link></li>
+<li><g:link controller="TurmaDisciplina" action="listar">Curso</g:link></li>
+<li class="active"><g:link controller="Disciplina" action="listar">Disciplina</g:link></li>
+<li><g:link controller="DisciplinaLecionadaPorProfessor"
+action="listar">Disciplina por Professor</g:link></li>
+<li><g:link controller="Horario" action="listar">Horário</g:link></li>
+<li><g:link controller="Matricula" action="listar">Matricula</g:link></li>
+<li><g:link controller="Sala" action="listar">Sala</g:link></li>
+<li><g:link controller="Serie" action="listar">Série</g:link></li>
+<li ><g:link controller="Turma" action="listar">Turma</g:link></li>
 		</ul>
 	</div>
 	<!-- CORPO DA PÁGINA -->
