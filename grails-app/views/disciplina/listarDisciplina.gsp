@@ -19,7 +19,7 @@
         var resposta = confirm("Deseja exluir esta Disciplina?");
 
         if (resposta == true){
-        location.href="/projetoMetaforaLocal/disciplina/deletar/"+id }
+        location.href="/projetoMetafora/disciplina/deletar/"+id }
 
        }
  </script>
@@ -65,7 +65,7 @@
 							<div style="margin-left: -35px" class="opcoes">
 								<ul style="display: inline">
 									<li class="btn btn-info btn-xs"><a style="color: #fff"
-										href="/projetoMetaforaLocal/disciplina/editarDisciplina/${it.id}"><span
+										href="/projetoMetafora/disciplina/editarDisciplina/${it.id}"><span
 											class="glyphicon glyphicon-pencil"></span></a></li>
 									<li onclick="deletar(${it.id})"
 										class="btn btn-danger btn-xs"><span
